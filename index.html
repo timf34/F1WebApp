@@ -2,10 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>My F1 Web App Title</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="styles.css" />
 </head>
 
-<h3>Our Sample F1 Web App</h3>
+<h1>Our Sample F1 Web App</h1>
+
+<p id="red-message" class="red-message">
+    We are going to enter two numbers, do some computation, then send to AWS IOT MQTT
+</p>
+
+<p id = "purple-message" class="purple-message">
+    Here is some <strong>purple</strong> text lol!
+</p>
 
 <body>
 <!-- Create two input boxes labelled number 1 and number 2 which input numbers-->
@@ -16,40 +26,8 @@
     <input type="text" id="num2" name="num2"><br><br>
 </form>
 
-<!-- Create a button which will call the function add() when clicked -->
-<button onclick="add()">Add</button>
+<!-- Create a button labelled "Do our secret computation" -->
+<button type="button" class="computation-button" onclick="doComputation()">Do our secret computation</button>
 
-<!-- Create a button which will call the function subtract() when clicked -->
-<button onclick="subtract()">Subtract</button>
-
-<!-- Display the result of the calculation in the div with id="result" -->
-<div id="result"></div>
-
-<!-- Create a script which will run the add() function when the page loads -->
-<script>
-    function add() {
-        // Get the values of the two input boxes
-        var num1 = document.getElementById("num1").value;
-        var num2 = document.getElementById("num2").value;
-
-        // Add the two numbers together
-        var result = parseInt(num1) + parseInt(num2);
-
-        // Display the result in the div with id="result"
-        document.getElementById("result").innerHTML = result;
-    }
-
-    function subtract() {
-        // Get the values of the two input boxes
-        var num1 = document.getElementById("num1").value;
-        var num2 = document.getElementById("num2").value;
-
-        // Subtract the two numbers
-        var result = parseInt(num1) - parseInt(num2);
-
-        // Display the result in the div with id="result"
-        document.getElementById("result").innerHTML = result;
-    }
-</script>
 </body>
 </html>
