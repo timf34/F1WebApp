@@ -38,6 +38,18 @@ slider_2._slider.oninput = function(){
     slider_2.update_output();
 }
 
+const slider_3 = new Slider("myRange3", "demo3");
+slider_3._slider.oninput = function(){
+    slider_3.update_output();
+}
+
+const slider_4 = new Slider("myRange4", "demo4");
+slider_4._slider.oninput = function(){
+    slider_4.update_output();
+}
+
+
+
 
 
 
