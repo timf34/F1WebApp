@@ -13,3 +13,5 @@ but I had to just notice that (didn't have any guiding errors, etc.)
     that we have instatiated within an array. If this was Python, I would loop through the array of sliders, find 
     their values, and then add them to a json file. 
 - [ ] Integrate AWS - be able to send json file to MQTT topic 
+- [ ] Look into where I can host web apps
+ 
