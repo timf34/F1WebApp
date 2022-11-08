@@ -1,3 +1,5 @@
+// TODO: will probably want to create a JS class/ object for the sliders here.
+
 let slider = document.getElementById("myRange");
 let output = document.getElementById("demo");
 output.innerHTML = slider.value; // Display the default slider value
