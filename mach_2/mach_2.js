@@ -48,6 +48,9 @@ slider_4._slider.oninput = function(){
     slider_4.update_output();
 }
 
+// TODO: every few seconds or so, we need to gather the results from the sliders,
+//  put them into a list or json format, and then send to MQTT.
+
 
 
 
