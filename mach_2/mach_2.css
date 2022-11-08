@@ -26,13 +26,15 @@
     appearance: none;
     width: 25px; /* Set a specific slider handle width */
     height: 25px; /* Slider handle height */
-    background: #04AA6D; /* Green background */
+    /* background: #04AA6D; /* Green background */
+    background: url("../images/favicon.ico");
     cursor: pointer; /* Cursor on hover */
 }
 
 .slider::-moz-range-thumb {
     width: 25px; /* Set a specific slider handle width */
     height: 25px; /* Slider handle height */
-    background: #04AA6D; /* Green background */
+    /*background: #04AA6D; !* Green background *!*/
+    background: url("../images/favicon.ico");
     cursor: pointer; /* Cursor on hover */
 }
