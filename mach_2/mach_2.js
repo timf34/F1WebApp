@@ -54,12 +54,20 @@ class Slider {
     }
 }
 
+mqtt_json = {
+    "slider_1": 0,
+    "slider_2": 0,
+    "slider_3": 0,
+    "slider_4": 0
+}
+
 const slider_1 = new Slider("myRange1", "demo1");
 // This just doesn't seem like the best way to be doing this, but it should do for now
 // TODO: note down, using `.onchange` instead - this will only run once an element "loses focus" i.e. once we are done
 //  with the slider. This is very useful for us as it makes it easier for us to send JSON files
 slider_1._slider.onchange = function(){
     slider_1.update_output();
+    mqtt_json["slider_1"] = slider_1._slider.value;
 }
 
 
@@ -67,20 +75,37 @@ slider_1._slider.onchange = function(){
 const slider_2 = new Slider("myRange2", "demo2");
 slider_2._slider.onchange = function(){
     slider_2.update_output();
+    mqtt_json["slider_2"] = slider_2._slider.value;
 }
 
 const slider_3 = new Slider("myRange3", "demo3");
-slider_3._slider.change = function(){
+slider_3._slider.onchange = function(){
     slider_3.update_output();
+    mqtt_json["slider_3"] = slider_3._slider.value;
 }
 
 const slider_4 = new Slider("myRange4", "demo4");
-slider_4._slider.change = function(){
+slider_4._slider.onchange = function(){
     slider_4.update_output();
+    mqtt_json["slider_4"] = slider_4._slider.value;
 }
 
-// TODO: every few seconds or so, we need to gather the results from the sliders,
-//  put them into a list or json format, and then send to MQTT.
+
+// A while loop that sleeps for 5 seconds
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function loop() {
+    while (true) {
+        console.log("JSON object:", mqtt_json);
+        await sleep(5000);
+    }
+}
+
+loop();
+
+
 
 
 
