@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mach 2. - F1 Web App</title>
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+    <link rel="stylesheet" href="mach_2.css" />
+    <script defer src="mach_2.js"></script>
+</head>
+<body>
+
+<div class="slidecontainer">
+    <p>
+        Car 1
+        <label for="myRange1"></label><input type="range" min="1" max="100" value="50" class="slider" id="myRange1">
+    </p>
+    <p id="demo1">Car 1 result: </p>  <!--- We need to output the result here! --->
+
+
+
+    <p>
+        Car 2
+        <label for="myRange2"></label><input type="range" min="1" max="100" value="50" class="slider" id="myRange2">
+    </p>
+    <p id="demo2">huh yah</p>
+
+    <p>
+        RPM
+        <label for="myRange3"></label><input type="range" min="1" max="100" value="50" class="slider" id="myRange3">
+    </p>
+    <p id="demo3">huh yah</p>
+
+    <p>
+        Speed
+        <label for="myRange4"></label><input type="range" min="1" max="100" value="50" class="slider" id="myRange4">
+    </p>
+    <p id="demo4">huh yah</p>
+</div>
+
+<div>
+    <p> Concatenated list to be sent to AWS MQTT:</p>
+    <p id="mqtt_package"></p>
+    <p id="mqtt_result">Sent succesfully to MQTT? </p> <!--- Ideally we fill in the result flush here (just a True or False)
+</div>
+
+</body>
+</html>
