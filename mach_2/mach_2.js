@@ -1,4 +1,4 @@
-// TODO: will probably want to create a JS class/ object for the sliders here.
+import { IoTClient } from "@aws-sdk/client-iot";
 
 // let slider = document.getElementById("myRange1");
 // let output = document.getElementById("demo1");
@@ -54,7 +54,7 @@ class Slider {
     }
 }
 
-mqtt_json = {
+let mqtt_json = {
     "slider_1": 0,
     "slider_2": 0,
     "slider_3": 0,
@@ -106,9 +106,31 @@ async function loop() {
 loop();
 
 
+// Create an IOT client
+const iot = new IoTClient({ region: "eu-west-1" });
 
+// Function to publish json data to an MQTT topic
+async function publish_json(topic, json_data) {
+    const params = {
+        topic: topic,
+        payload: JSON.stringify(json_data),
+        qos: 0
+    };
 
+    try {
+        const data = await iot.publish(params);
+        console.log("Success", data.$metadata);
+    } catch (err) {
+        console.log("Error", err);
+    }
+}
 
+// Continuously publish the `mqtt_json` object to the topic `RACE/new_json_file`
+async function publish_loop() {
+    while (true) {
+        publish_json("RACE/new_json_file", mqtt_json);
+        await sleep(5000);
+    }
+}
 
-
-
+publish_loop();
